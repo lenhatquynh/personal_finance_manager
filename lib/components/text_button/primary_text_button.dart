@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:personal_finance_manager/theme/configs/app_button_theme.dart';
-import 'package:personal_finance_manager/theme/configs/app_text_button.dart';
+import 'package:personal_finance_manager/core/app_themes/app_text_button_theme.dart';
+import 'package:personal_finance_manager/core/configs/theme_ext.dart';
 
 /// {@template primary_text_button}
 /// A custom primary text button widget that adapts to the platform.
 /// {@endtemplate}
-class PrimaryTextButton extends AppTextButton {
+class PrimaryTextButton extends AppTextButtonTheme {
   /// {@macro primary_text_button}
   const PrimaryTextButton({
     super.key,
@@ -40,8 +40,4 @@ class PrimaryTextButton extends AppTextButton {
   Color textColor(BuildContext context) {
     return context.buttonTheme.primaryText;
   }
-}
-
-extension on BuildContext {
-  AppButtonTheme get buttonTheme => Theme.of(this).extension<AppButtonTheme>()!;
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:personal_finance_manager/theme/app_colors.dart';
+import 'package:personal_finance_manager/core/app_styles/app_colors.dart';
 
 /// {@template app_input_theme}
 /// Theme class which provides configuration of [AppTextField]

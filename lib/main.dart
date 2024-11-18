@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:personal_finance_manager/core/configs/theme_scope.dart';
+import 'package:personal_finance_manager/core/configs/theme_scope_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final preferences = await SharedPreferences.getInstance();
+
+  runApp(
+    ThemeScopeWidget(
+      preferences: preferences,
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -10,12 +21,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final theme = ThemeScope.of(context);
+
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      title: 'Flutter App',
+      themeMode: theme.themeMode,
+      theme: ThemeData(extensions: [theme.appTheme]),
+      darkTheme: ThemeData(extensions: [theme.appTheme]),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }

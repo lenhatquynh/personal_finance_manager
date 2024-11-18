@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:personal_finance_manager/theme/app_radius.dart';
-import 'package:personal_finance_manager/theme/app_spacing.dart';
-import 'package:personal_finance_manager/theme/configs/app_button_size.dart';
-import 'package:personal_finance_manager/theme/configs/app_button_theme.dart';
-import 'package:personal_finance_manager/theme/configs/app_icon_builder.dart';
-import 'package:personal_finance_manager/theme/configs/app_typography_theme.dart';
+import 'package:personal_finance_manager/core/app_styles/app_radius.dart';
+import 'package:personal_finance_manager/core/app_styles/app_spacing.dart';
+import 'package:personal_finance_manager/core/constants/app_button_size.dart';
+import 'package:personal_finance_manager/core/configs/theme_ext.dart';
+
+/// A function that builds an icon widget.
+typedef IconBuilder = Widget Function(Color iconColor);
 
 /// {@template app_text_button}
 /// A custom text button widget that adapts to the platform.
 /// {@endtemplate}
-abstract class AppTextButton extends StatelessWidget {
+abstract class AppTextButtonTheme extends StatelessWidget {
   /// {@macro app_text_button}
-  const AppTextButton({
+  const AppTextButtonTheme({
     super.key,
     required this.label,
     this.onTap,
@@ -201,11 +202,11 @@ abstract class AppTextButton extends StatelessWidget {
               style: switch (appButtonSize) {
                 AppButtonSize.small ||
                 AppButtonSize.xSmall =>
-                  context.typography.buttonSmall,
-                AppButtonSize.medium => context.typography.buttonMedium,
-                AppButtonSize.large => context.typography.buttonLarge,
-                AppButtonSize.xlarge => context.typography.buttonXLarge,
-                AppButtonSize.xxLarge => context.typography.button2XLarge,
+                  context.typographyTheme.buttonSmall,
+                AppButtonSize.medium => context.typographyTheme.buttonMedium,
+                AppButtonSize.large => context.typographyTheme.buttonLarge,
+                AppButtonSize.xlarge => context.typographyTheme.buttonXLarge,
+                AppButtonSize.xxLarge => context.typographyTheme.button2XLarge,
               },
             ),
           ),
@@ -219,11 +220,4 @@ abstract class AppTextButton extends StatelessWidget {
       ),
     );
   }
-}
-
-extension on BuildContext {
-  AppRegularTypography get typography =>
-      Theme.of(this).extension<AppRegularTypography>()!;
-
-  AppButtonTheme get buttonTheme => Theme.of(this).extension<AppButtonTheme>()!;
 }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:personal_finance_manager/theme/configs/app_button_theme.dart';
-import 'package:personal_finance_manager/theme/configs/app_text_button.dart';
+import 'package:personal_finance_manager/core/app_themes/app_text_button_theme.dart';
+import 'package:personal_finance_manager/core/configs/theme_ext.dart';
 
 /// {@template outline_text_button}
 /// A custom outline text button widget that adapts to the platform.
 /// {@endtemplate}
-class OutlineTextButton extends AppTextButton {
+class OutlineTextButton extends AppTextButtonTheme {
   /// {@macro outline_text_button}
   const OutlineTextButton({
     super.key,
@@ -68,8 +68,4 @@ class OutlineTextButton extends AppTextButton {
       color: context.buttonTheme.outlinedBorderDisabled,
     );
   }
-}
-
-extension on BuildContext {
-  AppButtonTheme get buttonTheme => Theme.of(this).extension<AppButtonTheme>()!;
 }

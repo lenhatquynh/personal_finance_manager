@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:personal_finance_manager/theme/configs/app_button_theme.dart';
-import 'package:personal_finance_manager/theme/configs/app_text_button.dart';
-
+import 'package:personal_finance_manager/core/app_themes/app_text_button_theme.dart';
+import 'package:personal_finance_manager/core/configs/theme_ext.dart';
 
 /// {@template secondary_text_button}
 /// A custom secondary text button widget that adapts to the platform.
 /// {@endtemplate}
 ///
-class SecondaryTextButton extends AppTextButton {
+class SecondaryTextButton extends AppTextButtonTheme {
   /// {@macro secondary_text_button}
   const SecondaryTextButton({
     super.key,
@@ -42,8 +41,4 @@ class SecondaryTextButton extends AppTextButton {
   Color textColor(BuildContext context) {
     return context.buttonTheme.primaryTextOnBrand;
   }
-}
-
-extension on BuildContext {
-  AppButtonTheme get buttonTheme => Theme.of(this).extension<AppButtonTheme>()!;
 }
