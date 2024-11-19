@@ -25,6 +25,9 @@ dependencies:
   vector_graphics: ^1.1.14
   iconsax: ^0.0.8
   shared_preferences: ^2.3.3
+  bloc: ^8.1.4
+  json_annotation: ^4.9.0
+  json_serializable: ^6.8.0
 
 dev_dependencies:
   vector_graphics_compiler: ^1.1.14
