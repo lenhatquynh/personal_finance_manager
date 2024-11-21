@@ -1,5 +1,5 @@
 name: personal_finance_manager
-description: "A new Flutter project."
+description: "Personal Finance/Money Manager Mobile Application"
 
 publish_to: 'none' 
 
@@ -28,6 +28,7 @@ dependencies:
   bloc: ^8.1.4
   json_annotation: ^4.9.0
   json_serializable: ^6.8.0
+  flutter_launcher_icons: ^0.14.1
 
 dev_dependencies:
   vector_graphics_compiler: ^1.1.14

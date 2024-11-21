@@ -14,23 +14,22 @@ class AppColors {
 
   /// The color transparent
   static const transparent = Colors.transparent;
-
-  /// Brand color palette.
+  /// Dark brand color palette.
   static const brand = MaterialColor(
-    0xFF347AF6,
+    0xFF1D1D1D,
     {
-      50: Color(0xFFF0F5FF),
-      100: Color(0xFFE0ECFF),
-      150: Color(0xFFD3E1FB),
-      200: Color(0xFFBDD3F9),
-      250: Color(0xFF9FBFF9),
-      300: Color(0xFF81ACF9),
-      400: Color(0xFF5A93F9),
-      500: Color(0xFF347AF6),
-      600: Color(0xFF1559D1),
-      700: Color(0xFF174EAF),
-      800: Color(0xFF1D4387),
-      900: Color(0xFF163367),
+      50: Color(0xFFE0E0E0),
+      100: Color(0xFFB3B3B3),
+      150: Color(0xFF999999),
+      200: Color(0xFF808080),
+      250: Color(0xFF666666),
+      300: Color(0xFF4D4D4D),
+      400: Color(0xFF333333),
+      500: Color(0xFF1D1D1D),
+      600: Color(0xFF1A1A1A),
+      700: Color(0xFF171717),
+      800: Color(0xFF141414),
+      900: Color(0xFF0F0F0F),
     },
   );
 
@@ -91,41 +90,43 @@ class AppColors {
     },
   );
 
-  /// Success color palette.
-  static const success = MaterialColor(
-    0xFF28A745,
+  /// Custom muted color palette for lighter tones.
+  static const muted = MaterialColor(
+    0xFF0A0E0B,
     {
-      50: Color(0xFFE6F4EA),
-      100: Color(0xFFCCE9D5),
-      150: Color(0xFFB3DEC0),
-      200: Color(0xFF99D3AB),
-      250: Color(0xFF80C896),
-      300: Color(0xFF66BD81),
-      400: Color(0xFF4DB26C),
-      500: Color(0xFF339757),
-      600: Color(0xFF287A45),
-      700: Color(0xFF1E5D33),
-      800: Color(0xFF144021),
-      900: Color(0xFF0A2310),
+      50: Color(0xFFF2F4F3), // Lightest
+      100: Color(0xFFE1E6E4),
+      150: Color(0xFFD1D8D6),
+      200: Color(0xFFC0CAC7),
+      250: Color(0xFFAFBCB9),
+      300: Color(0xFF9EAEAA),
+      400: Color(0xFF8EA09C),
+      500: Color(0xFF0A0E0B), // Primary Muted
+      600: Color(0xFF090C0A),
+      700: Color(0xFF080A08),
+      800: Color(0xFF070906),
+      900: Color(0xFF060704), // Darkest Muted
     },
   );
 
-  /// Error color palette.
-  static const error = MaterialColor(
-    0xFFDC3545,
-    {
-      50: Color(0xFFFDECEA),
-      100: Color(0xFFFBD8D5),
-      150: Color(0xFFF9C4C0),
-      200: Color(0xFFF7B0AB),
-      250: Color(0xFFF59C96),
-      300: Color(0xFFF38881),
-      400: Color(0xFFF1746C),
-      500: Color(0xFFEF6057),
-      600: Color(0xFFDC3545),
-      700: Color(0xFFB02A37),
-      800: Color(0xFF84202A),
-      900: Color(0xFF58151C),
-    },
-  );
+  // Light theme background colors
+  static const Color lightBackground = Color(0xFFFFFFFF);
+  static const Color lightSurface = Color(0xFFF5F5F5);
+
+  // Dark theme background colors
+  static const Color darkBackground = Color(0xFF121212);
+  static const Color darkSurface = Color(0xFF1E1E1E);
+
+  // Accent colors
+  static const Color error = Color(0xFFCF6679);
+  static const Color success = Color(0xFF4CAF50);
+  static const Color warning = Color(0xFFFFC107);
+
+  // Divider colors
+  static const Color dividerLight = Color(0xFFE0E0E0);
+  static const Color dividerDark = Color(0xFF373737);
+
+  // Button-specific colors
+  static const Color buttonDisabledLight = Color(0xFFBDBDBD);
+  static const Color buttonDisabledDark = Color(0xFF424242);
 }

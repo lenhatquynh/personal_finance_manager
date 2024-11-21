@@ -23,6 +23,14 @@ class AppTheme extends ThemeExtension<AppTheme> {
       appTypographyTheme: AppRegularTypography().copyWith(),
     );
   }
+  /// {@macro app_theme}
+  factory AppTheme.dark() {
+    return AppTheme(
+      appButtonTheme: AppButtonTheme.dark(),
+      appInputTheme: AppInputTheme.dark(),
+      appTypographyTheme: AppRegularTypography().copyWith(),
+    );
+  }
 
   /// [AppButtonTheme] instance provides configuration of buttons
   final ThemeExtension<AppButtonTheme> appButtonTheme;

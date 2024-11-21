@@ -51,6 +51,30 @@ class AppButtonTheme extends ThemeExtension<AppButtonTheme> {
     );
   }
 
+  /// {@macro app_button_theme}
+  factory AppButtonTheme.dark() {
+    return AppButtonTheme(
+      primaryText: AppColors.white,
+      primaryTextOnBrand: AppColors.black,
+      primaryDefault: AppColors.brand.shade500,
+      primaryHover: AppColors.brand.shade600,
+      primaryFocused: AppColors.brand.shade700,
+      primaryDisabled: AppColors.brand.shade800,
+      secondaryText: AppColors.black,
+      secondaryDefault: AppColors.grey.shade500,
+      secondaryHover: AppColors.grey.shade600,
+      secondaryFocused: AppColors.grey.shade700,
+      secondaryDisabled: AppColors.grey.shade800,
+      outlinedText: AppColors.black,
+      outlinedDefault: AppColors.transparent,
+      outlinedHover: AppColors.grey.shade200,
+      outlinedFocused: AppColors.grey.shade300,
+      outlinedDisabled: AppColors.grey.shade400,
+      buttonLineDefault: AppColors.grey.shade500,
+      outlinedBorderDisabled: AppColors.grey.shade600,
+    );
+  }
+
   /// The color of the primary text.
   final Color primaryText;
 

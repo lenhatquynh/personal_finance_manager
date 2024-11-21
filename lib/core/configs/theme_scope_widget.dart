@@ -84,9 +84,9 @@ class ThemeScopeWidgetState extends State<ThemeScopeWidget> {
 
     final appTheme = switch (_themeMode!) {
       ThemeMode.light => AppTheme.light(),
-      ThemeMode.dark => AppTheme.light(),
+      ThemeMode.dark => AppTheme.dark(),
       ThemeMode.system =>
-        brightness == Brightness.dark ? AppTheme.light() : AppTheme.light(),
+        brightness == Brightness.dark ? AppTheme.dark() : AppTheme.light(),
     };
 
     return ThemeScope(

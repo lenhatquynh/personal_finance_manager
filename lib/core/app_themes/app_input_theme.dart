@@ -29,14 +29,34 @@ class AppInputTheme extends ThemeExtension<AppInputTheme> {
       defaultText: AppColors.grayLight.shade400,
       focusedOnBrand: AppColors.brand.shade500,
       focusedTextDefault: AppColors.grayLight.shade600,
-      errorTextDefault: AppColors.error.shade400,
-      successTextDefault: AppColors.success.shade400,
+      errorTextDefault: AppColors.error,
+      successTextDefault: AppColors.success,
       disabledText: AppColors.grayLight[250]!,
       borderDefault: AppColors.grayLight[250]!,
       borderHover: AppColors.grayLight.shade300,
       borderFocused: AppColors.brand.shade500,
-      borderError: AppColors.error.shade400,
-      borderSuccess: AppColors.success.shade400,
+      borderError: AppColors.error,
+      borderSuccess: AppColors.success,
+      borderDisabled: AppColors.grayLight.shade200,
+      defaultColor: AppColors.white,
+      disabledColor: AppColors.grayLight.shade100,
+    );
+  }
+
+  /// {@macro app_input_theme}
+  factory AppInputTheme.dark() {
+    return AppInputTheme(
+      defaultText: AppColors.grayLight.shade400,
+      focusedOnBrand: AppColors.brand.shade500,
+      focusedTextDefault: AppColors.grayLight.shade600,
+      errorTextDefault: AppColors.error,
+      successTextDefault: AppColors.success,
+      disabledText: AppColors.grayLight[250]!,
+      borderDefault: AppColors.grayLight[250]!,
+      borderHover: AppColors.grayLight.shade300,
+      borderFocused: AppColors.brand.shade500,
+      borderError: AppColors.error,
+      borderSuccess: AppColors.success,
       borderDisabled: AppColors.grayLight.shade200,
       defaultColor: AppColors.white,
       disabledColor: AppColors.grayLight.shade100,
