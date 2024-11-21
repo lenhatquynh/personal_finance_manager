@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:personal_finance_manager/core/configs/app_theme.dart';
-import 'package:personal_finance_manager/core/configs/theme_scope.dart';
+import 'package:personal_finance_manager/core/configs/theme/app_theme.dart';
+import 'package:personal_finance_manager/core/configs/theme/theme_scope.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const _kThemeMode = 'themeMode';

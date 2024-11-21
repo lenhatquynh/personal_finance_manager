@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:personal_finance_manager/core/app_themes/app_text_button_theme.dart';
-import 'package:personal_finance_manager/core/configs/theme_ext.dart';
+import 'package:personal_finance_manager/core/configs/theme/theme_ext.dart';
 
 /// {@template secondary_text_button}
 /// A custom secondary text button widget that adapts to the platform.

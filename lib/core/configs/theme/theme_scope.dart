@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:personal_finance_manager/core/configs/app_theme.dart';
+import 'package:personal_finance_manager/core/configs/theme/app_theme.dart';
 
 /// {@template theme_scope}
 /// InheritedWidget provides [AppTheme] for app

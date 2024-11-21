@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:personal_finance_manager/core/app_themes/app_button_theme.dart';
 import 'package:personal_finance_manager/core/app_themes/app_input_theme.dart';
-import 'package:personal_finance_manager/core/configs/app_theme.dart';
+import 'package:personal_finance_manager/core/configs/theme/app_theme.dart';
 import 'package:personal_finance_manager/core/app_themes/app_typography_theme.dart';
 
 /// An extension on [BuildContext] that provides access to the current theme.

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:personal_finance_manager/core/app_styles/app_radius.dart';
 import 'package:personal_finance_manager/core/app_styles/app_spacing.dart';
 import 'package:personal_finance_manager/core/constants/app_button_size.dart';
-import 'package:personal_finance_manager/core/configs/theme_ext.dart';
+import 'package:personal_finance_manager/core/configs/theme/theme_ext.dart';
 
 /// A function that builds an icon widget.
 typedef IconBuilder = Widget Function(Color iconColor);

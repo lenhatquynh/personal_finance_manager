@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:personal_finance_manager/core/app_styles/app_radius.dart';
-import 'package:personal_finance_manager/core/configs/theme_ext.dart';
+import 'package:personal_finance_manager/core/configs/theme/theme_ext.dart';
 
 /// {@template app_text_field}
 /// A customizable text field widget with various customization options.
