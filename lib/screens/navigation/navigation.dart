@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:personal_finance_manager/main.dart';
+import 'package:personal_finance_manager/core/app_styles/app_assets.dart';
+import 'package:personal_finance_manager/core/app_styles/app_colors.dart';
+import 'package:personal_finance_manager/screens/budgets/budget_screen.dart';
+import 'package:personal_finance_manager/screens/home/home_screen.dart';
+import 'package:personal_finance_manager/screens/insights/insight_screen.dart';
+import 'package:personal_finance_manager/screens/setting/setting_screen.dart';
 
 class Navigation extends StatefulWidget {
   const Navigation({super.key});
@@ -10,85 +16,105 @@ class Navigation extends StatefulWidget {
 }
 
 class _NavigationState extends State<Navigation> {
-  int selectedIndex = 0;
-  List<IconData> icondata = [
-    Iconsax.home,
-    Iconsax.graph,
-    Icons.switch_access_shortcut_add_rounded,
-    Iconsax.setting,
+  int selectedTab = 0;
+  double scale = 1.0;
+  Color transactionColor = AppColors.white;
+  List<String> tabIcon = [
+    AppAssets.tabHome,
+    AppAssets.tabInsight,
+    AppAssets.addSquare,
+    AppAssets.tabBudget,
+    AppAssets.tabSetting,
   ];
   List<Widget> pages = [
-    const MyHomePage(
+    const HomeScreen(
       title: "Home",
     ),
-    const Center(
-      child: Text("Center"),
+    const InsightScreen(
+      title: "Insights",
     ),
-    const MyHomePage(
-      title: "Home",
+    const InsightScreen(
+      title: "Transaction",
     ),
-    const Center(
-      child: Text("Center"),
+    const BudgetScreen(
+      title: "Budgets",
+    ),
+    const SettingScreen(
+      title: "Settings",
     ),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: SizedBox(
-        height: 80,
-        width: 80,
-        child: FloatingActionButton(
-            materialTapTargetSize: MaterialTapTargetSize.padded,
-            autofocus: true,
-            splashColor: Colors.lightBlueAccent,
-            hoverColor: Colors.blue,
-            backgroundColor: Colors.lightBlue,
-            shape: const CircleBorder(side: BorderSide(color: Colors.teal)),
-            onPressed: () {},
-            child: const Icon(
-              Iconsax.microphone,
-              size: 45,
-              color: Colors.white,
-            )),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       bottomNavigationBar: Material(
         child: Container(
           height: 100,
           decoration: const BoxDecoration(color: Color(0xFF282636)),
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: icondata.length,
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 33, vertical: 10),
-                child: GestureDetector(
-                  onTap: () {
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: List.generate(
+              tabIcon.length,
+              (index) {
+                return GestureDetector(
+                  onPanDown: (_) {
                     setState(() {
-                      selectedIndex = index;
+                      if (index != 2) {
+                        scale = 0.7;
+                      } else {
+                        transactionColor = AppColors.grayDark.shade300;
+                      }
+                      selectedTab = index;
                     });
                   },
-                  child: SizedBox(
-                    width: index == 0
-                        ? 40
-                        : index == 3
-                            ? 35
-                            : 30,
-                    height: 30,
-                    child: Icon(
-                      icondata[index],
-                      color: index == selectedIndex ? Colors.white : Colors.grey,
-                    ),
+                  onPanEnd: (_) {
+                    Future.delayed(const Duration(milliseconds: 70), () {
+                      setState(() {
+                        scale = 1.0;
+                        selectedTab = index;
+                        transactionColor = AppColors.white;
+                      });
+                    });
+                  },
+                  child: AnimatedScale(
+                    scale: selectedTab == index ? scale : 1.0,
+                    duration: const Duration(milliseconds: 300),
+                    child: index == 2
+                        ? DecoratedBox(
+                            decoration: BoxDecoration(
+                              color: transactionColor,
+                              shape: BoxShape.rectangle,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: const SizedBox(
+                              width: 50,
+                              height: 30,
+                              child: Icon(
+                                Iconsax.add,
+                                color: AppColors.black,
+                              ),
+                            ),
+                          )
+                        : SizedBox(
+                            width: 30,
+                            height: 30,
+                            child: SvgPicture.asset(
+                              tabIcon[index],
+                              colorFilter: ColorFilter.mode(
+                                  selectedTab == index
+                                      ? AppColors.white
+                                      : AppColors.grayDark.shade300,
+                                  BlendMode.srcIn),
+                            ),
+                          ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
         ),
       ),
-      body: pages[selectedIndex],
+      body: pages[selectedTab],
     );
   }
 }

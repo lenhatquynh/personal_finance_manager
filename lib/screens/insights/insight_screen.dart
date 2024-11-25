@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.title});
+class InsightScreen extends StatefulWidget {
+  const InsightScreen({super.key, required this.title});
 
   final String title;
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<InsightScreen> createState() => _InsightScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _InsightScreenState extends State<InsightScreen> {
   int _counter = 0;
 
   void _incrementCounter() {

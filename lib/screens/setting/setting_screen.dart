@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.title});
+class SettingScreen extends StatefulWidget {
+  const SettingScreen({super.key, required this.title});
 
   final String title;
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<SettingScreen> createState() => _SettingScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _SettingScreenState extends State<SettingScreen> {
   int _counter = 0;
 
   void _incrementCounter() {
