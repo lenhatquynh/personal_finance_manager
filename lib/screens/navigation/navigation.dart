@@ -50,7 +50,7 @@ class _NavigationState extends State<Navigation> {
       bottomNavigationBar: Material(
         child: Container(
           height: 100,
-          decoration: const BoxDecoration(color: Color(0xFF282636)),
+          decoration: const BoxDecoration(color: AppColors.darkBackground),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: List.generate(
@@ -68,7 +68,7 @@ class _NavigationState extends State<Navigation> {
                     });
                   },
                   onPanEnd: (_) {
-                    Future.delayed(const Duration(milliseconds: 70), () {
+                    Future.delayed(const Duration(milliseconds: 50), () {
                       setState(() {
                         scale = 1.0;
                         selectedTab = index;

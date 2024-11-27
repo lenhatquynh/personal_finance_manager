@@ -28,6 +28,7 @@ dependencies:
   json_serializable: ^6.8.0
   flutter_launcher_icons: ^0.14.1
   flutter_svg: ^2.0.15
+  animated_number_switcher: ^0.0.4
 
 dev_dependencies:
   flutter_test:
