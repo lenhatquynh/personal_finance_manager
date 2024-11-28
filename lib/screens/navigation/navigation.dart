@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:personal_finance_manager/core/app_styles/app_assets.dart';
-import 'package:personal_finance_manager/core/app_styles/app_colors.dart';
+import 'package:personal_finance_manager/shared/styles/assets.dart';
+import 'package:personal_finance_manager/shared/styles/colors.dart';
 import 'package:personal_finance_manager/screens/budgets/budget_screen.dart';
 import 'package:personal_finance_manager/screens/home/home_screen.dart';
 import 'package:personal_finance_manager/screens/insights/insight_screen.dart';
@@ -18,7 +18,7 @@ class Navigation extends StatefulWidget {
 class _NavigationState extends State<Navigation> {
   int selectedTab = 0;
   double scale = 1.0;
-  Color transactionColor = AppColors.white;
+  late Color transactionColor;
   List<String> tabIcon = [
     AppAssets.tabHome,
     AppAssets.tabInsight,
@@ -45,12 +45,20 @@ class _NavigationState extends State<Navigation> {
   ];
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    transactionColor = Theme.of(context).colorScheme.onTertiary;
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
       bottomNavigationBar: Material(
         child: Container(
           height: 100,
-          decoration: const BoxDecoration(color: AppColors.darkBackground),
+          decoration: BoxDecoration(color: colorScheme.surface),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: List.generate(
@@ -62,7 +70,7 @@ class _NavigationState extends State<Navigation> {
                       if (index != 2) {
                         scale = 0.7;
                       } else {
-                        transactionColor = AppColors.grayDark.shade300;
+                        transactionColor = colorScheme.tertiary;
                       }
                       selectedTab = index;
                     });
@@ -72,7 +80,7 @@ class _NavigationState extends State<Navigation> {
                       setState(() {
                         scale = 1.0;
                         selectedTab = index;
-                        transactionColor = AppColors.white;
+                        transactionColor = colorScheme.onTertiary;
                       });
                     });
                   },
@@ -102,8 +110,8 @@ class _NavigationState extends State<Navigation> {
                               tabIcon[index],
                               colorFilter: ColorFilter.mode(
                                   selectedTab == index
-                                      ? AppColors.white
-                                      : AppColors.grayDark.shade300,
+                                      ? colorScheme.onTertiary
+                                      : colorScheme.tertiary,
                                   BlendMode.srcIn),
                             ),
                           ),

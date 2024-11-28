@@ -1,34 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:personal_finance_manager/core/configs/routes/router_config.dart';
-import 'package:personal_finance_manager/core/configs/theme/theme_scope.dart';
-import 'package:personal_finance_manager/core/configs/theme/theme_scope_widget.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:personal_finance_manager/shared/routes/router_config.dart';
+import 'package:personal_finance_manager/shared/theme/theme.dart';
+import 'package:personal_finance_manager/state/theme/bloc/theme_bloc.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  final preferences = await SharedPreferences.getInstance();
-
-  runApp(
-    ThemeScopeWidget(
-      preferences: preferences,
-      child: const MyApp(),
-    ),
-  );
+void main() {
+  runApp(const FinanceManagerApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class FinanceManagerApp extends StatefulWidget {
+  const FinanceManagerApp({super.key});
 
+  @override
+  State<FinanceManagerApp> createState() => _FinanceManagerAppState();
+}
+
+class _FinanceManagerAppState extends State<FinanceManagerApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final theme = ThemeScope.of(context);
+    final brightness = MediaQuery.of(context).platformBrightness;
 
-    return MaterialApp.router(
-      themeMode: theme.themeMode,
-      theme: ThemeData(extensions: [theme.appTheme]),
-      darkTheme: ThemeData(extensions: [theme.appTheme]),
-      routerConfig: router,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => ThemeBloc()..add(SetThemeEvent(brightness)),
+        ),
+      ],
+      child: BlocSelector<ThemeBloc, ThemeState, Brightness>(
+        selector: (state) {
+          return state.mode;
+        },
+        builder: (context, state) {
+          return MaterialApp.router(
+            theme: state == Brightness.light ? lightTheme : darkTheme,
+            routerConfig: router,
+          );
+        },
+      ),
     );
   }
 }

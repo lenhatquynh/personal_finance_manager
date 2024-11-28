@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:personal_finance_manager/core/app_styles/app_assets.dart';
-import 'package:personal_finance_manager/core/app_styles/app_colors.dart';
+import 'package:personal_finance_manager/shared/styles/assets.dart';
 import 'package:animated_number_switcher/animated_number_switcher.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,28 +16,28 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
-      backgroundColor: AppColors.darkBackground,
+      backgroundColor: colorScheme.surface,
       appBar: AppBar(
-        backgroundColor: AppColors.darkBackground,
+        backgroundColor: colorScheme.surface,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-              focusColor: AppColors.white,
               onPressed: () {},
-              icon: const Icon(
+              icon: Icon(
                 Iconsax.search_normal_1,
-                color: AppColors.white,
+                color: colorScheme.onPrimary,
               ),
             ),
             IconButton(
-              focusColor: AppColors.white,
               onPressed: () {},
               icon: SvgPicture.asset(
                 AppAssets.filter,
-                colorFilter: const ColorFilter.mode(
-                  AppColors.white,
+                colorFilter: ColorFilter.mode(
+                  colorScheme.onPrimary,
                   BlendMode.srcIn,
                 ),
               ),
@@ -50,23 +49,22 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 25),
         child: ListView(
           children: [
-            const Row(
+            Row(
               children: [
                 Text(
                   "Net total",
                   style: TextStyle(
-                    color: AppColors.white,
+                    color: colorScheme.onPrimary,
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                
               ],
             ),
             AnimatedNumberSwitcher.text(
               "1245,20",
-              style: const TextStyle(
-                color: AppColors.white,
+              style: TextStyle(
+                color: colorScheme.onPrimary,
                 fontSize: 40,
                 fontWeight: FontWeight.w600,
               ),

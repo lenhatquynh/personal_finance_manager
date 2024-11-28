@@ -20,4 +20,7 @@ class AppRadius {
 
   /// Medium radius of 8.
   static const md = Radius.circular(8);
+
+  /// Large radius of 10.
+  static const lg = Radius.circular(10);
 }
