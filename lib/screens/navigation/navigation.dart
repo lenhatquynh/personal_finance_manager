@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:personal_finance_manager/shared/styles/assets.dart';
-import 'package:personal_finance_manager/shared/styles/colors.dart';
+import 'package:personal_finance_manager/shared/styles/asset.dart';
+import 'package:personal_finance_manager/shared/styles/color.dart';
 import 'package:personal_finance_manager/screens/budgets/budget_screen.dart';
 import 'package:personal_finance_manager/screens/home/home_screen.dart';
 import 'package:personal_finance_manager/screens/insights/insight_screen.dart';
@@ -20,11 +20,11 @@ class _NavigationState extends State<Navigation> {
   double scale = 1.0;
   late Color transactionColor;
   List<String> tabIcon = [
-    AppAssets.tabHome,
-    AppAssets.tabInsight,
-    AppAssets.addSquare,
-    AppAssets.tabBudget,
-    AppAssets.tabSetting,
+    AppAsset.tabHome,
+    AppAsset.tabInsight,
+    AppAsset.addSquare,
+    AppAsset.tabBudget,
+    AppAsset.tabSetting,
   ];
   List<Widget> pages = [
     const HomeScreen(
@@ -99,7 +99,7 @@ class _NavigationState extends State<Navigation> {
                               height: 30,
                               child: Icon(
                                 Iconsax.add,
-                                color: AppColors.black,
+                                color: AppColor.black,
                               ),
                             ),
                           )

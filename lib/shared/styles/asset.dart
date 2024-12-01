@@ -1,8 +1,8 @@
 
 /// {@template app_icons}
-/// The [AppAssets] class contains all the icons used in the app.
+/// The [AppAsset] class contains all the icons used in the app.
 /// {@endtemplate}
-abstract class AppAssets {
+abstract class AppAsset {
   static const appIcon = 'assets/rasters/app-icon.png';
 
   // tab home icon

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gap/gap.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:personal_finance_manager/shared/styles/assets.dart';
-import 'package:animated_number_switcher/animated_number_switcher.dart';
+import 'package:personal_finance_manager/shared/components/home/net_filter.dart';
+import 'package:personal_finance_manager/shared/components/transactions/transaction_history_section.dart';
+import 'package:personal_finance_manager/shared/styles/asset.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.title});
@@ -35,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
             IconButton(
               onPressed: () {},
               icon: SvgPicture.asset(
-                AppAssets.filter,
+                AppAsset.filter,
                 colorFilter: ColorFilter.mode(
                   colorScheme.onPrimary,
                   BlendMode.srcIn,
@@ -48,27 +50,10 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25),
         child: ListView(
-          children: [
-            Row(
-              children: [
-                Text(
-                  "Net total",
-                  style: TextStyle(
-                    color: colorScheme.onPrimary,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ],
-            ),
-            AnimatedNumberSwitcher.text(
-              "1245,20",
-              style: TextStyle(
-                color: colorScheme.onPrimary,
-                fontSize: 40,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
+          children: const [
+            NetFilter(),
+            Gap(16),
+            TransactionHistorySection(),
           ],
         ),
       ),
