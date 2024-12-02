@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:personal_finance_manager/shared/components/transactions/transaction.dart';
 import 'package:personal_finance_manager/shared/styles/font_size.dart';
 
@@ -48,6 +49,7 @@ class _TransactionHistorySectionState extends State<TransactionHistorySection> {
         ),
         const Transaction(),
         const Transaction(),
+        const Gap(24),
       ],
     );
   }

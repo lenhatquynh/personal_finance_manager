@@ -128,4 +128,7 @@ class AppColor {
   // Button-specific colors
   static const Color buttonDisabledLight = Color(0xFFBDBDBD);
   static const Color buttonDisabledDark = Color(0xFF424242);
+
+  // Background input
+  static const Color inputBackground = Color.fromARGB(45, 229, 229, 234);
 }
