@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:personal_finance_manager/shared/components/transactions/transaction_history_section.dart';
 import 'package:personal_finance_manager/shared/styles/asset.dart';
 import 'package:personal_finance_manager/shared/styles/color.dart';
 import 'package:personal_finance_manager/shared/styles/font_size.dart';
