@@ -45,6 +45,9 @@ class _NetFilterState extends State<NetFilter> {
                 splashColor: Colors.transparent,
               ),
               child: PopupMenuButton<String>(
+                constraints: const BoxConstraints(
+                  minWidth: 150,
+                ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -66,13 +69,10 @@ class _NetFilterState extends State<NetFilter> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              SizedBox(
-                                width: 85,
-                                child: Text(
-                                  filter,
-                                  style: const TextStyle(
-                                    fontSize: AppFontSize.base,
-                                  ),
+                              Text(
+                                filter,
+                                style: const TextStyle(
+                                  fontSize: AppFontSize.base,
                                 ),
                               ),
                               if (_selectedFilter == filter)
