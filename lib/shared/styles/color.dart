@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 /// {@template app_colors}
 /// Colors class for themes which provides direct access with static fields.
 /// {@endtemplate}
-class AppColors {
-  AppColors._();
+class AppColor {
+  AppColor._();
 
   /// The color white
   static const white = Colors.white;
@@ -14,6 +14,7 @@ class AppColors {
 
   /// The color transparent
   static const transparent = Colors.transparent;
+
   /// Dark brand color palette.
   static const brand = MaterialColor(
     0xFF1D1D1D,
@@ -63,7 +64,7 @@ class AppColors {
       250: Color(0xFFCECFD2),
       300: Color(0xFF94969C),
       400: Color(0xFF85888E),
-      500: Color(0xFF61646C),
+      500: Color.fromARGB(255, 41, 41, 41),
       600: Color(0xFF333741),
       700: Color(0xFF1F242F),
       800: Color(0xFF161B26),
@@ -110,16 +111,14 @@ class AppColors {
   );
 
   // Light theme background colors
-  static const Color lightBackground = Color(0xFFFFFFFF);
   static const Color lightSurface = Color(0xFFF5F5F5);
 
   // Dark theme background colors
-  static const Color darkBackground = Color(0xFF121212);
   static const Color darkSurface = Color(0xFF1E1E1E);
 
   // Accent colors
-  static const Color error = Color(0xFFCF6679);
-  static const Color success = Color(0xFF4CAF50);
+  static const Color error = Color.fromARGB(255, 199, 64, 64);
+  static const Color success = Color.fromARGB(255, 82, 207, 86);
   static const Color warning = Color(0xFFFFC107);
 
   // Divider colors
@@ -129,4 +128,7 @@ class AppColors {
   // Button-specific colors
   static const Color buttonDisabledLight = Color(0xFFBDBDBD);
   static const Color buttonDisabledDark = Color(0xFF424242);
+
+  // Background input
+  static const Color inputBackground = Color.fromARGB(45, 229, 229, 234);
 }

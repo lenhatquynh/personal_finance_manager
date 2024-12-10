@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gap/gap.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:personal_finance_manager/shared/components/home/net_filter.dart';
+import 'package:personal_finance_manager/shared/components/home/search_sliding_up.dart';
+import 'package:personal_finance_manager/shared/components/transactions/transaction_history_section.dart';
+import 'package:personal_finance_manager/shared/styles/asset.dart';
+import 'package:personal_finance_manager/shared/styles/font_size.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.title});
@@ -10,40 +18,117 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  String _selectedFilter = 'all entries'; // Default filter value
+  final List<Map<String, dynamic>> filterDisplayNames = [
+    {'name': 'all entries', 'icon': Iconsax.document},
+    {'name': 'by type', 'icon': Iconsax.filter},
+    {'name': 'by day', 'icon': Iconsax.calendar_1},
+    {'name': 'by week', 'icon': Iconsax.calendar_2},
+    {'name': 'by month', 'icon': Iconsax.calendar_2},
+    {'name': 'by category', 'icon': Iconsax.category},
+    {'name': 'recurring', 'icon': Iconsax.repeat},
+    {'name': 'upcoming', 'icon': Iconsax.clock},
+  ];
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
+      backgroundColor: colorScheme.surface,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+        backgroundColor: colorScheme.surface,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(
+              onPressed: () => showSearchUI(context),
+              icon: Icon(
+                Iconsax.search_normal_1,
+                color: colorScheme.onPrimary,
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            homeFilter(colorScheme),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 25),
+        child: ListView(
+          children: const [
+            NetFilter(),
+            Gap(16),
+            TransactionHistorySection(),
+          ],
+        ),
       ),
+    );
+  }
+
+  PopupMenuButton<String> homeFilter(ColorScheme colorScheme) {
+    return PopupMenuButton<String>(
+      constraints: const BoxConstraints(
+        minWidth: 150,
+      ),
+      icon: SvgPicture.asset(
+        AppAsset.filter,
+        colorFilter: ColorFilter.mode(
+          colorScheme.onPrimary,
+          BlendMode.srcIn,
+        ),
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      offset: const Offset(0, 40),
+      color: colorScheme.secondary,
+      onSelected: (value) {
+        setState(() {
+          _selectedFilter = value;
+        });
+      },
+      itemBuilder: (BuildContext context) => filterDisplayNames
+          .map(
+            (filter) => PopupMenuItem<String>(
+              padding: EdgeInsets.zero,
+              height: 28,
+              value: filter['name'],
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(
+                            size: AppFontSize.lg,
+                            filter['icon'],
+                            color: colorScheme.onPrimary,
+                          ),
+                          const Gap(8),
+                          Text(
+                            filter['name'],
+                            style: const TextStyle(
+                              fontSize: AppFontSize.base,
+                            ),
+                          ),
+                        ],
+                      ),
+                      if (_selectedFilter == filter['name'])
+                        Icon(
+                          size: AppFontSize.lg,
+                          Icons.check,
+                          color: colorScheme.onPrimary,
+                        )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          )
+          .toList(),
     );
   }
 }

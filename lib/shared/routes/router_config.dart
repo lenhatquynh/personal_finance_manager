@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
-import 'package:personal_finance_manager/core/configs/routes/router.dart';
+import 'package:personal_finance_manager/shared/routes/router.dart';
 import 'package:personal_finance_manager/screens/budgets/budget_screen.dart';
 import 'package:personal_finance_manager/screens/home/home_screen.dart';
 import 'package:personal_finance_manager/screens/insights/insight_screen.dart';

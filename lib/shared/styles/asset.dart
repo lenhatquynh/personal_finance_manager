@@ -1,9 +1,13 @@
 
 /// {@template app_icons}
-/// The [AppAssets] class contains all the icons used in the app.
+/// The [AppAsset] class contains all the icons used in the app.
 /// {@endtemplate}
-abstract class AppAssets {
+abstract class AppAsset {
+  // app icon
   static const appIcon = 'assets/rasters/app-icon.png';
+
+  // mailbox icon
+  static const mailboxIcon = 'assets/rasters/mailbox.png';
 
   // tab home icon
   static const tabHome = 'assets/vectors/tab-home.svg';
