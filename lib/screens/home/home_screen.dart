@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: colorScheme.onPrimary,
               ),
             ),
-            homeFilter(colorScheme),
+            homeFilter(),
           ],
         ),
       ),
@@ -65,7 +65,8 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  PopupMenuButton<String> homeFilter(ColorScheme colorScheme) {
+  PopupMenuButton<String> homeFilter() {
+    final colorScheme = Theme.of(context).colorScheme;
     return PopupMenuButton<String>(
       constraints: const BoxConstraints(
         minWidth: 150,
@@ -95,35 +96,33 @@ class _HomeScreenState extends State<HomeScreen> {
               value: filter['name'],
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Icon(
-                            size: AppFontSize.lg,
-                            filter['icon'],
-                            color: colorScheme.onPrimary,
-                          ),
-                          const Gap(8),
-                          Text(
-                            filter['name'],
-                            style: const TextStyle(
-                              fontSize: AppFontSize.base,
-                            ),
-                          ),
-                        ],
-                      ),
-                      if (_selectedFilter == filter['name'])
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
                         Icon(
                           size: AppFontSize.lg,
-                          Icons.check,
+                          filter['icon'],
                           color: colorScheme.onPrimary,
-                        )
-                    ],
-                  ),
+                        ),
+                        const Gap(8),
+                        Text(
+                          filter['name'],
+                          style: const TextStyle(
+                            fontSize: AppFontSize.base,
+                          ),
+                        ),
+                      ],
+                    ),
+                    if (_selectedFilter == filter['name'])
+                      Icon(
+                        size: AppFontSize.lg,
+                        Icons.check,
+                        color: colorScheme.onPrimary,
+                      )
+                  ],
                 ),
               ),
             ),
