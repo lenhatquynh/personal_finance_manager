@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:personal_finance_manager/shared/routes/router_config.dart';
 import 'package:personal_finance_manager/shared/theme/theme.dart';
-import 'package:personal_finance_manager/state/theme/bloc/theme_bloc.dart';
+import 'package:personal_finance_manager/state/theme_bloc/theme_bloc.dart';
 
 void main() {
   runApp(const FinanceManagerApp());
