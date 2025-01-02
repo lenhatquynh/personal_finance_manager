@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:personal_finance_manager/shared/styles/asset.dart';
 import 'package:personal_finance_manager/shared/styles/color.dart';
 import 'package:personal_finance_manager/screens/budgets/budget_screen.dart';
@@ -98,7 +97,7 @@ class _NavigationState extends State<Navigation> {
                               width: 50,
                               height: 30,
                               child: Icon(
-                                Iconsax.add,
+                                Icons.add,
                                 color: AppColor.black,
                               ),
                             ),

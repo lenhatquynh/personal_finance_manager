@@ -1,6 +1,7 @@
 import 'package:animated_number_switcher/animated_number_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:personal_finance_manager/shared/components/common/normal_filter.dart';
 import 'package:personal_finance_manager/shared/styles/color.dart';
 import 'package:personal_finance_manager/shared/styles/font_size.dart';
 
@@ -12,7 +13,7 @@ class NetFilter extends StatefulWidget {
 }
 
 class _NetFilterState extends State<NetFilter> {
-  String _selectedFilter = 'today'; // Default filter value
+  String _selectedFilter = 'today';
 
   final List<String> filterDisplayNames = [
     'today',
@@ -40,78 +41,14 @@ class _NetFilterState extends State<NetFilter> {
               ),
             ),
             const Gap(8),
-            Theme(
-              data: Theme.of(context).copyWith(
-                splashColor: Colors.transparent,
-              ),
-              child: PopupMenuButton<String>(
-                constraints: const BoxConstraints(
-                  minWidth: 150,
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                offset: const Offset(0, 40),
-                color: colorScheme.secondary,
-                onSelected: (value) {
-                  setState(() {
-                    _selectedFilter = value;
-                  });
-                },
-                itemBuilder: (BuildContext context) => filterDisplayNames
-                    .map(
-                      (filter) => PopupMenuItem<String>(
-                        padding: EdgeInsets.zero,
-                        height: 28,
-                        value: filter,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                filter,
-                                style: const TextStyle(
-                                  fontSize: AppFontSize.base,
-                                ),
-                              ),
-                              if (_selectedFilter == filter)
-                                Icon(
-                                  size: AppFontSize.lg,
-                                  Icons.check,
-                                  color: colorScheme.onPrimary,
-                                )
-                            ],
-                          ),
-                        ),
-                      ),
-                    )
-                    .toList(),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: colorScheme.tertiary,
-                      width: 0.5,
-                    ),
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(18),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 4,
-                    ),
-                    child: Text(
-                      _selectedFilter,
-                      style: TextStyle(
-                        color: colorScheme.onPrimary,
-                        fontSize: AppFontSize.base,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+            NormalFilter(
+              filterDisplayNames: filterDisplayNames,
+              selectedFilter: _selectedFilter,
+              onSelected: (value) {
+                setState(() {
+                  _selectedFilter = value;
+                });
+              },
             ),
           ],
         ),

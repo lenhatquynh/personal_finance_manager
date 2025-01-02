@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:personal_finance_manager/shared/components/home/net_filter.dart';
 import 'package:personal_finance_manager/shared/components/home/search_sliding_up.dart';
 import 'package:personal_finance_manager/shared/components/transactions/transaction_history_section.dart';
@@ -20,14 +19,14 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   String _selectedFilter = 'all entries'; // Default filter value
   final List<Map<String, dynamic>> filterDisplayNames = [
-    {'name': 'all entries', 'icon': Iconsax.document},
-    {'name': 'by type', 'icon': Iconsax.filter},
-    {'name': 'by day', 'icon': Iconsax.calendar_1},
-    {'name': 'by week', 'icon': Iconsax.calendar_2},
-    {'name': 'by month', 'icon': Iconsax.calendar_2},
-    {'name': 'by category', 'icon': Iconsax.category},
-    {'name': 'recurring', 'icon': Iconsax.repeat},
-    {'name': 'upcoming', 'icon': Iconsax.clock},
+    {'name': 'all entries', 'icon': Icons.all_inclusive},
+    {'name': 'by type', 'icon': Icons.filter_alt_outlined},
+    {'name': 'by day', 'icon': Icons.calendar_today_outlined},
+    {'name': 'by week', 'icon': Icons.calendar_month_sharp},
+    {'name': 'by month', 'icon': Icons.calendar_month_outlined},
+    {'name': 'by category', 'icon': Icons.grid_view_outlined},
+    {'name': 'recurring', 'icon': Icons.repeat},
+    {'name': 'upcoming', 'icon': Icons.update_outlined},
   ];
 
   @override
@@ -44,8 +43,9 @@ class _HomeScreenState extends State<HomeScreen> {
             IconButton(
               onPressed: () => showSearchUI(context),
               icon: Icon(
-                Iconsax.search_normal_1,
+                Icons.search,
                 color: colorScheme.onPrimary,
+                size: AppFontSize.xl3,
               ),
             ),
             homeFilter(),
