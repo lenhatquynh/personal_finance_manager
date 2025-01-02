@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:personal_finance_manager/shared/styles/asset.dart';
 import 'package:personal_finance_manager/shared/styles/color.dart';
 import 'package:personal_finance_manager/shared/styles/font_size.dart';
@@ -53,9 +52,9 @@ void showSearchUI(BuildContext context) {
                             ),
                             hintText: 'Search entry by note',
                             prefixIcon: Icon(
-                              Iconsax.search_normal_1,
+                              Icons.search,
                               color: colorScheme.onPrimary,
-                              size: AppFontSize.lg,
+                              size: AppFontSize.xl3,
                             ),
                             suffixIcon: searchController.text.isNotEmpty
                                 ? IconButton(
@@ -64,7 +63,7 @@ void showSearchUI(BuildContext context) {
                                       setState(() {});
                                     },
                                     icon: Icon(
-                                      Iconsax.close_circle,
+                                      Icons.close,
                                       color: colorScheme.onPrimary,
                                       size: AppFontSize.lg,
                                     ),

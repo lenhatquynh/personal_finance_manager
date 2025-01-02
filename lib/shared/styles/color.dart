@@ -118,7 +118,7 @@ class AppColor {
 
   // Accent colors
   static const Color error = Color.fromARGB(255, 199, 64, 64);
-  static const Color success = Color.fromARGB(255, 82, 207, 86);
+  static const Color success = Color.fromARGB(255, 94, 241, 175);
   static const Color warning = Color(0xFFFFC107);
 
   // Divider colors
